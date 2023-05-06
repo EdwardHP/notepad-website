@@ -1,0 +1,12 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--main-font);
+}
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--background);
+    color: var(--white);
+}
