@@ -6,7 +6,7 @@ function NotepadList(props) {
         <section>
             {props.notepadData && props.notepadData.map((notepad) => {
                 return <Notepad key={notepad._id} title={notepad.title} content={notepad.content} 
-                setPanelOpen={props.setPanelOpen} address={notepad._id} setNotepadId={props.setNotepadId} setEditNotepad={props.setEditNotepad} setNotepadContent={props.setNotepadContent}/>
+                setPanelOpen={props.setPanelOpen} address={notepad._id} setNotepadId={props.setNotepadId} setEditNotepad={props.setEditNotepad} setNotepadContent={props.setNotepadContent} setForceUpdate={props.setForceUpdate} />
             })}
         </section>
     )

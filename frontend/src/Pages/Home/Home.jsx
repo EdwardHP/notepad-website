@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getAllNotepads } from "../../API/queryAPI"
 import NotepadList from "../../components/NotepadList/NotepadList"
 import NotepadPanel from "../../components/NotepadPanel/NotepadPanel"
+import AddNotepadButton from "../../components/AddNotepadButton/AddNotepadButton";
 
 function Home() {
 
@@ -28,8 +29,11 @@ function Home() {
 
     return (
         <section>
-            <NotepadList notepadData={notepadData} setPanelOpen={setPanelOpen} setNotepadId={setNotepadId} setEditNotepad={setEditNotepad} setNotepadContent={setNotepadContent} />
+            <NotepadList notepadData={notepadData} setPanelOpen={setPanelOpen} setNotepadId={setNotepadId} setEditNotepad={setEditNotepad} setNotepadContent={setNotepadContent} setForceUpdate={setForceUpdate} />
+
             {panelOpen && <NotepadPanel notepadData={notepadData} setPanelOpen={setPanelOpen} notepadId={notepadId} setForceUpdate={setForceUpdate} editNotepad={editNotepad} notepadContent={notepadContent} />}
+
+            <AddNotepadButton setEditNotepad={setEditNotepad} setPanelOpen={setPanelOpen} />
         </section>
     )
 }

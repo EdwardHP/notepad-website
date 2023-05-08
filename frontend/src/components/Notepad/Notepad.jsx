@@ -1,4 +1,4 @@
-import React from 'react'
+import { deleteNotepad } from '../../API/queryAPI'
 import { MdDelete } from 'react-icons/md'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import style from './Notepad.module.css'
@@ -16,6 +16,11 @@ function Notepad(props) {
         props.setPanelOpen(true);
     };
 
+    const removeNotepad = () => {
+        deleteNotepad(props.address);
+        props.setForceUpdate(prev => !prev);
+    };
+
     return (
         <section className={style.notepad} >
             <section className={style.content} onClick={openPanel} >
@@ -23,7 +28,7 @@ function Notepad(props) {
                 <p>{props.content}</p>
             </section>
             <section className={style.buttons}>
-                <MdDelete />
+                <MdDelete onClick={removeNotepad} />
                 <AiOutlineArrowRight />
             </section>
         </section>

@@ -1,0 +1,16 @@
+.addNotepadButton {
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 3.5em;
+
+    background-color: var(--contrast);
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+}
