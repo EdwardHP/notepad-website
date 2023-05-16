@@ -1,0 +1,7 @@
+.notepadList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: baseline;
+    padding: 18px;
+}
