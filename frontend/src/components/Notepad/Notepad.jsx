@@ -16,8 +16,8 @@ function Notepad(props) {
         props.setPanelOpen(true);
     };
 
-    const removeNotepad = () => {
-        deleteNotepad(props.address);
+    const removeNotepad = async () => {
+        await deleteNotepad(props.address);
         props.setForceUpdate(prev => !prev);
     };
 

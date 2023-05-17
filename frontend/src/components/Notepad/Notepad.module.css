@@ -4,6 +4,7 @@
     min-height: 100px;
     border-radius: 15px;
     word-wrap: break-word;
+    box-shadow: -2px 2px 7px #00000054;
 }
 
 .content {
@@ -16,9 +17,10 @@
 }
 
 .content p {
-    height: 80px;
+    height: 70px;
     overflow: hidden;
     position: relative;
+    color: #dbdbdb;
 }
 
 .content p::before {
@@ -32,12 +34,26 @@
 }
 
 .buttons {
+    bottom: 0px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
     font-size: 1.25em;
+    padding: 0px 5px 5px 5px;
 }
 
 .buttons svg {
     cursor: pointer;
+    opacity: 0;
+    background: transparent;
+    transition: opacity .4s ease-in-out, background .4s ease-in-out;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.notepad:hover svg {
+    opacity: 1;
+}
+
+.buttons svg:hover {
+    background-color: #919191;
 }

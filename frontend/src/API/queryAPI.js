@@ -33,8 +33,8 @@ export function editNotepad(id, edits) {
     .catch(error => console.log('Erro: ', error));
 }
 
-export function deleteNotepad(id) {
-    fetch(`http://localhost:3000/notepad/${id}`, {
+export async function deleteNotepad(id) {
+    await fetch(`http://localhost:3000/notepad/${id}`, {
         method: 'DELETE',
     });
 }

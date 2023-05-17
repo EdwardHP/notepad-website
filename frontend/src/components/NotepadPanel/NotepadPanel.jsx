@@ -21,6 +21,9 @@ function NotepadPanel(props) {
     };
     // Cria um bloco de notas
     const createNotepad = async () => {
+        // Se não tiver titulo não cria o bloco de notas
+        if (title.current.value == '') return;
+
         await createNewNotepad({ title: title.current.value, content: content.current.value });
     };
     // Edita um bloco de notas
