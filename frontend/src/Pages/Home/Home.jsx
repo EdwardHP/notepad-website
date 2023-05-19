@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { getAllNotepads } from "../../API/queryAPI"
 import NotepadList from "../../components/NotepadList/NotepadList"
 import NotepadPanel from "../../components/NotepadPanel/NotepadPanel"
 import AddNotepadButton from "../../components/AddNotepadButton/AddNotepadButton";
+
+export const homeContext = createContext(null);
 
 function Home() {
 
@@ -28,13 +30,13 @@ function Home() {
     }, [forceUpdate]);
 
     return (
-        <section>
-            <NotepadList notepadData={notepadData} setPanelOpen={setPanelOpen} setNotepadId={setNotepadId} setEditNotepad={setEditNotepad} setNotepadContent={setNotepadContent} setForceUpdate={setForceUpdate} />
+        <homeContext.Provider value={{ notepadData, setPanelOpen, setNotepadId, setEditNotepad, setNotepadContent, setForceUpdate}}>
+            <NotepadList notepadData={notepadData} />
 
             {panelOpen && <NotepadPanel notepadData={notepadData} setPanelOpen={setPanelOpen} notepadId={notepadId} setForceUpdate={setForceUpdate} editNotepad={editNotepad} notepadContent={notepadContent} />}
 
             <AddNotepadButton setEditNotepad={setEditNotepad} setPanelOpen={setPanelOpen} />
-        </section>
+        </homeContext.Provider>
     )
 }
 

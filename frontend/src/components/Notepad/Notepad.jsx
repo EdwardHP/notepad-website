@@ -2,23 +2,27 @@ import { deleteNotepad } from '../../API/queryAPI'
 import { MdDelete } from 'react-icons/md'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import style from './Notepad.module.css'
+import { useContext } from 'react'
+import { homeContext } from '../../Pages/Home/Home'
 
 function Notepad(props) {
 
+    const context = useContext(homeContext);
+
     const openPanel = () => {
         // Manda os conteúdos para o panel
-        props.setNotepadContent([props.title, props.content])
+        context.setNotepadContent([props.title, props.content])
         // Envia o id para o painel
-        props.setNotepadId(props.address);
+        context.setNotepadId(props.address);
         // Diz que é uma edição para o painel
-        props.setEditNotepad(true);
+        context.setEditNotepad(true);
         // Abre o painel
-        props.setPanelOpen(true);
+        context.setPanelOpen(true);
     };
 
     const removeNotepad = async () => {
         await deleteNotepad(props.address);
-        props.setForceUpdate(prev => !prev);
+        context.setForceUpdate(prev => !prev);
     };
 
     return (
